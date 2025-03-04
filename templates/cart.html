@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart - Overclocked</title>
+    <link rel="stylesheet" href="{% static 'Css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'Css/all.css' %}" />
+    <link rel="stylesheet" href="{% static 'Css/cart.css' %}" />
+    <link rel="icon" href="{% static 'icons/fav.png' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="{% static 'js/cart.js' %}" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="{% url 'home' %}" class="logo-text">OVERCLOCKED</a>
+      </div>
+      <form action="" class="sbar">
+        <input type="search" name="search" id="search" placeholder="Search" />
+        <button type="submit">
+          <img src="{% static 'icons/mag.png' %}" height="10px" />
+        </button>
+      </form>
+
+      <nav>
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'parts' %}">Parts</a></li>
+          <li><a href="{% url 'reviews' %}">Reviews</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li>
+            <a href="{% url 'cart' %}">Cart (<span id="cartCount">0</span>)</a>
+          </li>
+          <li>
+            {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}">
+            {% else %}
+            <a href="{% url 'signin' %}">
+            {% endif %}
+              <div class="user-cnt">
+                <img
+                  src="{% static 'icons/user.png' %}"
+                  height="16px"
+                  class="user"
+                />
+                <img
+                  src="{% static 'icons/user2.png' %}"
+                  height="16px"
+                  class="user2"
+                /></div
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="Box">
+      <div class="cart-container">
+        <h1>SHOPPING CART</h1>
+        <div class="cart-items">
+          <!-- Cart items will be dynamically inserted here -->
+        </div>
+        <div class="cart-summary">
+          <div class="total">Total: <span id="total">₹0.00</span></div>
+          <div class="cart-buttons">
+            <button onclick="clearCart()" class="clear-cart">CLEAR CART</button>
+            <a href="{% url 'checkout' %}" class="checkout-btn">PROCEED TO CHECKOUT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Function to render cart items
+      function renderCart() {
+        const cartContainer = document.querySelector('.cart-items');
+        const total = document.getElementById('total');
+        let cartTotal = 0;
+        
+        cartContainer.innerHTML = '';
+        
+        if (cart.items.length === 0) {
+          cartContainer.innerHTML = '<p class="empty-cart">Your cart is empty</p>';
+          total.textContent = '₹0.00';
+          return;
+        }
+
+        cart.items.forEach(item => {
+          const itemTotal = item.price * item.quantity;
+          cartTotal += itemTotal;
+          
+          const itemElement = document.createElement('div');
+          itemElement.className = 'cart-item';
+          itemElement.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" class="item-image">
+            <div class="item-info">
+              <h3>${item.name}</h3>
+              <div class="price">₹${item.price.toFixed(2)}</div>
+              <div class="quantity">
+                <button onclick="updateQuantity('${item.id}', ${item.quantity - 1})">-</button>
+                <span>${item.quantity}</span>
+                <button onclick="updateQuantity('${item.id}', ${item.quantity + 1})">+</button>
+              </div>
+              <button onclick="removeFromCart('${item.id}')" class="remove">Remove</button>
+            </div>
+          `;
+          cartContainer.appendChild(itemElement);
+        });
+
+        total.textContent = '₹' + cartTotal.toFixed(2);
+      }
+
+      // Initial render
+      document.addEventListener('DOMContentLoaded', function() {
+        renderCart();
+      });
+
+      // Function to update quantity
+      function updateQuantity(id, newQuantity) {
+        if (newQuantity < 1) return;
+        cart.updateQuantity(id, newQuantity);
+        renderCart();
+      }
+
+      // Function to remove item from cart
+      function removeFromCart(id) {
+        cart.removeItem(id);
+        renderCart();
+      }
+
+      // Function to clear cart
+      function clearCart() {
+        cart.clearCart();
+        renderCart();
+      }
+    </script>
+  </body>
+</html>

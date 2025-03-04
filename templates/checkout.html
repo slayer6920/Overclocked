@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'Css/checkout.css' %}" />
+{% endblock %} {% block content %}
+<div class="Box">
+  <div class="checkout-container">
+    <h1>CHECKOUT</h1>
+
+    <div class="checkout-content">
+      <div class="order-summary">
+        <h2>Order Summary</h2>
+        <div class="checkout-items">
+          <!-- Items will be populated by JavaScript -->
+        </div>
+        <div class="checkout-total">
+          Total: ₹<span id="checkout-total">0.00</span>
+        </div>
+      </div>
+
+      <form id="checkout-form" class="shipping-details">
+        {% csrf_token %}
+        <h2>Shipping Details</h2>
+
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required />
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address</label>
+          <textarea id="address" name="address" required></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" required />
+          </div>
+
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="pincode">Pincode</label>
+          <input type="text" id="pincode" name="pincode" required />
+        </div>
+
+        <button type="submit" class="place-order-btn">Place Order</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% block extra_js %}
+<script src="{% static 'js/checkout.js' %}"></script>
+{% endblock %} {% endblock %}

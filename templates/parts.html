@@ -1,0 +1,349 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parts - Overclocked</title>
+    <link rel="stylesheet" href="{% static 'Css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'Css/all.css' %}" />
+    <link rel="stylesheet" href="{% static 'Css/parts.css' %}" />
+    <link rel="stylesheet" href="{% static 'Css/notification.css' %}" />
+    <link rel="icon" href="{% static 'icons/fav.png' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="{% static 'js/cart.js' %}" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="{% url 'home' %}" class="logo-text">OVERCLOCKED</a>
+      </div>
+      <form action="" class="sbar">
+        <input type="search" name="search" id="search" placeholder="Search" />
+        <button type="submit">
+          <img src="{% static 'icons/mag.png' %}" height="10px" />
+        </button>
+      </form>
+      <nav>
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'parts' %}">Parts</a></li>
+          <li><a href="{% url 'reviews' %}">Reviews</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li>
+            <a href="{% url 'cart' %}">Cart (<span id="cartCount">0</span>)</a>
+          </li>
+          <li>
+            {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}">
+            {% else %}
+            <a href="{% url 'signin' %}">
+            {% endif %}
+              <div class="user-cnt">
+                <img
+                  src="{% static 'icons/user.png' %}"
+                  height="16px"
+                  class="user"
+                />
+                <img
+                  src="{% static 'icons/user2.png' %}"
+                  height="16px"
+                  class="user2"
+                /></div
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="body">
+      <div class="middle">
+        <div class="header">
+          <h1>PARTS</h1>
+        </div>
+        <div class="container">
+          <div class="item">
+            <img src="{% static 'items/ssd1.png' %}" alt="Product Image" />
+            <h3>Samsung 990 PRO SSD 1TB PCIe 4.0 M.2 SSD</h3>
+            <div class="bottom">
+              <div class="price">₹11,500</div>
+              <div class="button-cnt">
+                <button class="add-to-cart-btn" onclick="addToCart('1', 'Samsung 990 PRO SSD 1TB PCIe 4.0 M.2', '11500', '{% static 'items/ssd1.png' %}')">
+                  Add to Cart
+                </button>
+                <a
+                  href="https://www.amazon.in/Samsung-Internal-Expansion-Graphics-MZ-V9P1T0B/dp/B0B9C3ZVHR/ref=sr_1_1?crid=33MP7XI06KN6F&dib=eyJ2IjoiMSJ9.EeidOAx1LyeLGsV-AoC2sWAz57RztRKfQy-c3gdyHqeLgFJanWcIuF2rCJjdzhGQi2XdkkY2ikddrhRwTalkc4cVAw9hC5wtZSVBk78kYLDduTcxi9sD-XEdY5U9AXz_Y74Jk_KxAN4n679ioXWlb-ex4wLJoGflFnwLr7eVp-GHV-f_tXPBeSQfZ3r1WCN6RT8fwm-ylknDodrbVtLb6Uj3tlfuBaGs6XpxSy_WbZM.WcX8ofH_NG3snvxSzG_iIy84q_inGOzYjxOxpvEqlaE&dib_tag=se&keywords=samsung%2Bpro%2Bnvme&nsdOptOutParam=true&qid=1740155699&sprefix=smasung%2Bpro%2Bnvem%2Caps%2C204&sr=8-1&th=1"
+                  target="_blank"
+                  class="button amazon-btn"
+                  >Amazon Price</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'items/item2.png' %}" alt="Product Image" />
+            <h3>Kingston NV1 250GB PCIe M.2 NVME</h3>
+            <div class="bottom">
+              <div class="price">₹2,859.00</div>
+              <div class="button-cnt">
+                <button class="add-to-cart-btn" onclick="addToCart('2', 'Kingston NV1 250GB PCIe M.2 NVME', '2859.00', '{% static 'items/item2.png' %}')">
+                  Add to Cart
+                </button>
+                <a
+                  href="https://www.amazon.in/Kingston-PCle-NVMe-Internal-500GB/dp/B0BBWJH1P8/ref=sr_1_1?crid=3MYFW1ZGXFFV2&dib=eyJ2IjoiMSJ9.etS8vUwBYYqfq-rEfQ08Z7ovuarLuTLvdJfcWcyVpm63Bl9LRew-gULbD8Z40RAQJY_cdWWU10gGxDXWI1-Eyk9BAYo5v7S780ElwjoDpa9EYGexaDNCHNMpr9c4ALYJpnjA6iAN5NAfIkJO2uUu52XN57tC61jqiJaT-WAv0AkI9hl3YkMjzS5rADgtfOunNNoh3ZyGZlz5CCmtPRyUVfWKjJb-BGJIlacH7kqnSdukpTpKE_uQZ6iosXRbzym4yxjtTCCZ_U_Z-BxypEqFt0hbG1tsAVnOwtfCPZLpG6KCTYwgNCTQ6ewMWblq4nuJ1BElMrqfuQN5AMJR70ChTV62amJsR33U1K6n-CEtHTw.6HO2VvxXqrs_2ORmB3I1MXPXxbtD0xGoRHhnXMCQauM&dib_tag=se&keywords=Kingston%2BNV1%2B250GB%2BPCIe%2BM.2%2BNVME&nsdOptOutParam=true&qid=1740155965&s=computers&sprefix=kingston%2Bnv1%2B250gb%2Bpcie%2Bm.2%2Bnvme%2Ccomputers%2C182&sr=1-1&th=1"
+                  target="_blank"
+                  class="button amazon-btn"
+                  >Amazon Price</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'items/item3.png' %}" alt="Product Image" />
+            <h3>Kingston HyperX Fury v2/Fury Beast 4gb DDR4-2666mhz</h3>
+            <div class="bottom">
+              <div class="price">₹1,895.00</div>
+              <div class="button-cnt">
+                <button class="add-to-cart-btn" onclick="addToCart('3', 'Kingston HyperX Fury v2/Fury Beast 4gb DDR4-2666mhz', '1895.00', '{% static 'items/item3.png' %}')">
+                  Add to Cart
+                </button>
+                <a
+                  href="https://www.amazon.in/HyperX-2666MHz-Desktop-HX426C16FB3K4-64/dp/B07WD5VRKD?th=1"
+                  target="_blank"
+                  class="button amazon-btn"
+                  >Amazon Price</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'items/ddr5.png' %}" alt="Product Image" />
+            <h3>G.SKILL Trident Z5 RGB 32GB (2x16GB) DDR5 6000MHz</h3>
+            <div class="bottom">
+              <div class="price">₹18,999.00</div>
+              <div class="button-cnt">
+                <button class="add-to-cart-btn" onclick="addToCart('4', 'G.SKILL Trident Z5 RGB 32GB DDR5 6000MHz', '18999.00', '{% static 'items/ddr5.png' %}')">
+                  Add to Cart
+                </button>
+                <a
+                  href="https://www.amazon.in/G-Skill-Trident-CL30-38-38-96-Channel-Desktop/dp/B0BF8FVLSL/ref=sr_1_1?crid=AM6YQ0P87K6Q&dib=eyJ2IjoiMSJ9.-f9p43zUa4QhwLdrOMu_Mkzgy_fTWrlINoJHBYapQv_YwX360KNw7K_cyXgqdiJItGp2Mc1EUCBBBMoY_q0ADq7-SwjAaVuhF2iZM11kWYx9IWvJ3E_aif3KHAbV2H3DCNV7hc8lSmRUFNr7_iNw5wviQk1GNw_aAuBqLNbBEGelSgPLlalroELNei1ntPKDGcCXkvFUmGbUaGX4TcBuvPPdPgMnyqQvUNO35EKwa5GPhJ9ekqy3zsQZ1AU0ol281GMyUbD9NlFHWsdaL2UssCIxf_Jconoq2P0cXk1dUA6grgWQOyAZuLKZIWuSjNKAF47kx0MevYV-SYJMU6eWMToKFaSMRDO9cLhK1ERkSb8.H1YyopOD6co-jya_vWwrY-dEl03uosvpTTnysqw8mQo&dib_tag=se&keywords=G.SKILL%2BTrident%2BZ5%2BRGB%2B32GB%2B(2x16GB)%2BDDR5%2B6000MHz&nsdOptOutParam=true&qid=1740161256&s=electronics&sprefix=g.skill%2Btrident%2Bz5%2Brgb%2B32gb%2B2x16gb%2Bddr5%2B6000mhz%2Celectronics%2C182&sr=1-1&th=1"
+                  target="_blank"
+                  class="button amazon-btn"
+                  >Amazon Price</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'items/wd.png' %}" alt="Product Image" />
+            <h3>WD_BLACK SN850X 2TB NVMe SSD Gen4</h3>
+            <div class="bottom">
+              <div class="price">₹16,999.00</div>
+              <div class="button-cnt">
+                <button class="add-to-cart-btn" onclick="addToCart('5', 'WD_BLACK SN850X 2TB NVMe SSD Gen4', '16999.00', '{% static 'items/wd.png' %}')">
+                  Add to Cart
+                </button>
+                <a
+                  href="https://www.amazon.in/WD_BlackTM-SN850X-NVMeTM-Gaming-Storage/dp/B0B7CMZ3QH/ref=sr_1_2?crid=34QXHJLO5QXM2&dib=eyJ2IjoiMSJ9.xJoibsZlBJQfwrW83YwEkRWJeS7ZC0vHY9CRHidpzfsbsJoGD2OcfBg94kcx24Ox87iTgPEjzKAc9DcsXVePAg9dJoB4kGe4JBqHz7kaiyD-Of6l5bEuArwb86oqG97Eo33pLM-jknTL1eaOeYKY-j0f4LIdNOGnesKiBR2YLnWOuJYDJEgx15kxMJ9p3-K_QD5LIgKUOe42dYi00ENsEGAx8IwvmD23M5cKT4mWsVVcuy9y3DvdxTeNCcy8j2MahIwYdQIzY9OxXETqxZv6Hasw0GCuY-wtxDQraCvJqZU6eqDDua2kisRQuowO7VRJ7VHVMUTthfG3fjGxFoIPI5ztwwQIZgkUsTxL7lg4itw.Ce-x_8ScF0bCExzL0rwnLSOgq6nXYJs9vJgQVhUncUA&dib_tag=se&keywords=D_BLACK+SN850X+2TB+NVMe+SSD+Gen4&qid=1740161358&s=electronics&sprefix=d_black+sn850x+2tb+nvme+ssd+gen4%2Celectronics%2C189&sr=1-2"
+                  target="_blank"
+                  class="button amazon-btn"
+                  >Amazon Price</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'items/i9.png' %}" alt="Product Image" />
+            <h3>Intel Core i9-14900K Desktop Processor</h3>
+            <div class="bottom">
+              <div class="price">₹57,999.00</div>
+              <div class="button-cnt">
+                <button class="add-to-cart-btn" onclick="addToCart('6', 'Intel Core i9-14900K Desktop Processor', '57999.00', '{% static 'items/i9.png' %}')">
+                  Add to Cart
+                </button>
+                <a
+                  href="https://www.amazon.in/i9-14900K-Desktop-Processor-Integrated-Graphics/dp/B0CHBJGFBC/ref=asc_df_B0CHBJGFBC/?tag=googleshopdes-21&linkCode=df0&hvadid=709963224146&hvpos=&hvnetw=g&hvrand=11651827375539154504&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9061971&hvtargid=pla-2235363431734&psc=1&mcid=94b0e22a84fa30dda2d8cbfe58bf5423&gad_source=1"
+                  target="_blank"
+                  class="button amazon-btn"
+                  >Amazon Price</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'items/i7.png' %}" alt="Product Image" />
+            <h3>Intel Core i7-14700K Desktop Processor</h3>
+            <div class="bottom">
+              <div class="price">₹42,999.00</div>
+              <div class="button-cnt">
+                <button class="add-to-cart-btn" onclick="addToCart('7', 'Intel Core i7-14700K Desktop Processor', '42999.00', '{% static 'items/i7.png' %}')">
+                  Add to Cart
+                </button>
+                <a
+                  href="https://www.amazon.in/i7-14700K-Desktop-Processor-Integrated-Graphics/dp/B0CGJ41C9W/ref=asc_df_B0CGJ41C9W/?tag=googleshopdes-21&linkCode=df0&hvadid=709963224146&hvpos=&hvnetw=g&hvrand=6361222829907520136&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9061971&hvtargid=pla-2243985301892&mcid=3c0f3854f1673797805b4bffdee79554&gad_source=1&th=1"
+                  target="_blank"
+                  class="button amazon-btn"
+                  >Amazon Price</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'items/i5.png' %}" alt="Product Image" />
+            <h3>Intel Core i5-14600K Desktop Processor</h3>
+            <div class="bottom">
+              <div class="price">₹32,999.00</div>
+              <div class="button-cnt">
+                <button class="add-to-cart-btn" onclick="addToCart('8', 'Intel Core i5-14600K Desktop Processor', '32999.00', '{% static 'items/i5.png' %}')">
+                  Add to Cart
+                </button>
+                <a
+                  href="https://www.amazon.in/Intel-i5-14600K-Processor-Integrated-Graphics/dp/B0CGJ9STNF/ref=asc_df_B0CGJ9STNF/?tag=googleshopdes-21&linkCode=df0&hvadid=709963224146&hvpos=&hvnetw=g&hvrand=13856880529297996733&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9061971&hvtargid=pla-2239186533499&mcid=5c198be60dbf3f84ba235ea67cd21bcd&gad_source=1&th=1"
+                  target="_blank"
+                  class="button amazon-btn"
+                  >Amazon Price</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'items/r9.png' %}" alt="Product Image" />
+            <h3>AMD Ryzen 9 7950X Desktop Processor</h3>
+            <div class="bottom">
+              <div class="price">₹54,999.00</div>
+              <div class="button-cnt">
+                <button class="add-to-cart-btn" onclick="addToCart('9', 'AMD Ryzen 9 7950X Desktop Processor', '54999.00', '{% static 'items/r9.png' %}')">
+                  Add to Cart
+                </button>
+                <a
+                  href="https://www.amazon.in/AMD-7950X-Desktop-Processor-100-100000514WOF/dp/B0BBHD5D8Y/ref=sr_1_1?crid=N013LFH86QEZ&dib=eyJ2IjoiMSJ9.kqSygJemgeY_xFefuYu1OMwiwa0Te5uMblDSfHpnFsVMV3QHihaFqHVidEA211usFpKj9cEfkQmFzy87CWg3jTtJhFz-pOk68TKXiIfclT6gEF9CC_JNTHWVDOZysF8gSlUjTzBm746AbIr8eVNVfd6vYqA0qyRRRN1TN_GDXcBdY9x8vuqESUGNcIh2DZ0sgj8XZ50uwCyWiLoxvL1eMdCNKEa8HzFhYiWFIg-rtv5xKZrGQAwE6_D-w2K0XMyllAtZXk1dLVKUlBmkdDxqwRtMzFloFF27-7gCA-Hf4PqTdem7P41Zz9ECIhaGp-J9DMTZ0PLztqpsvj5hxd_wtH9inzL1eu6DCGI0Z5VWv7w.Ti6YLeDy5laL8cZXX4pNJR5giMHRakW6PUz-1sz30so&dib_tag=se&keywords=AMD%2BRyzen%2B9%2B7950X%2BDesktop%2BProcessor&nsdOptOutParam=true&qid=1740157271&s=electronics&sprefix=amd%2Bryzen%2B9%2B7950x%2Bdesktop%2Bprocessor%2Celectronics%2C185&sr=1-1&th=1"
+                  target="_blank"
+                  class="button amazon-btn"
+                  >Amazon Price</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'items/r7.png' %}" alt="Product Image" />
+            <h3>AMD Ryzen 7 7700X Desktop Processor</h3>
+            <div class="bottom">
+              <div class="price">₹35,999.00</div>
+              <div class="button-cnt">
+                <button class="add-to-cart-btn" onclick="addToCart('10', 'AMD Ryzen 7 7700X Desktop Processor', '35999.00', '{% static 'items/r7.png' %}')">
+                  Add to Cart
+                </button>
+                <a
+                  href="https://www.amazon.in/AMD-7700X-Desktop-Processor-100-100000591WOF/dp/B0BBHHT8LY/ref=sr_1_1?crid=1HFOYGN02Q51T&dib=eyJ2IjoiMSJ9.w3ZFKlGS5Pn1O5LGeqxFiEYiluflhhCJMzwQla0V3tP2OiaPw_ZJaEUFJatZJXHz5ho7B_tgeSw6mhm5vVpMVfCEckPKUQaIL2dvLvDaB-H_QYM3J6lG6TAanZ0iAujGmoNdAgiAew3pH95RRG7_hosSwMcfNCrEj_x7nmK2P4pJ_eIaw1Q-EC5rKISbhis6fPle0IXcWbfNc7K7KgtTWqzF29oMT5_RxzUgx1an6mRIvyW5JT_jELoF8_YKfZKq8OM3sUqqBJ-WjGR31lBPYfZBe_uEob_TLUrHGgsuZqRDGmZSjtLEkFsDGeUxP79vofuTR8CsbVOWQm40F5B5kjgQfoQm6Yz6BJU_2e_BGAI.yfsDb_BpKRj6uJ3YY1-RwBQjpKttW2mwyXzPy5nW0p8&dib_tag=se&keywords=%3DAMD+Ryzen+7+7700X+Desktop+Processor&nsdOptOutParam=true&qid=1740157596&s=electronics&sprefix=amd+ryzen+7+7700x+desktop+processor%2Celectronics%2C179&sr=1-1"
+                  target="_blank"
+                  class="button amazon-btn"
+                  >Amazon Price</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'items/r5.png' %}" alt="Product Image" />
+            <h3>AMD Ryzen 5 7600X Desktop Processor</h3>
+            <div class="bottom">
+              <div class="price">₹27,999.00</div>
+              <div class="button-cnt">
+                <button class="add-to-cart-btn" onclick="addToCart('11', 'AMD Ryzen 5 7600X Desktop Processor', '27999.00', '{% static 'items/r5.png' %}')">
+                  Add to Cart
+                </button>
+                <a
+                  href="https://www.amazon.in/i7-14700K-Desktop-Processor-Integrated-Graphics/dp/B0CGJ41C9W/ref=asc_df_B0CGJ41C9W/?tag=googleshopdes-21&linkCode=df0&hvadid=709963224146&hvpos=&hvnetw=g&hvrand=6361222829907520136&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9061971&hvtargid=pla-2243985301892&mcid=3c0f3854f1673797805b4bffdee79554&gad_source=1&th=1"
+                  target="_blank"
+                  class="button amazon-btn"
+                  >Amazon Price</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'items/rtx3080ti.png' %}" alt="Product Image" />
+            <h3>NVIDIA GEFORCE RTX 3080 Ti X3 12GB GDDR6X GPU</h3>
+            <div class="bottom">
+              <div class="price">₹1,45,999.00</div>
+              <div class="button-cnt">
+                <button class="add-to-cart-btn" onclick="addToCart('12', 'NVIDIA GEFORCE RTX 3080 Ti X3 12GB GDDR6X GPU', '145999.00', '{% static 'items/rtx3080ti.png' %}')">
+                  Add to Cart
+                </button>
+                <a
+                  href="https://www.amazon.in/INNO3D-NVIDIA-GEFORCE-384-bit-Graphics/dp/B09V89QXGR/ref=sr_1_2?crid=3NZJQ55Q1ILB6&dib=eyJ2IjoiMSJ9.5yr4XcKT0j5Gvh8_zmpRJwlT_gz1NngQZpL6tyNycLf3dRUXcoyJIOvYsBcT-jZumwpgFCDQ_b6Gk7MKl9x9l79UPoJYmnLZQL7yW821ZfgY5Gp5Oomq3uKY9hk-KDb3Wt_znGfsCAaKvlxjmCLGR5AI1VwwrP6eqjbahsOsVwNfItLb4976zdb2sARJJolI55Emponi1qTPeLLMOwzyjh2_hAehTF_BJP1GdolRk7C5UGABMAUPktg--KpMpubldTXCrvY_m-1P1YtiUZj9_75-bMaprEa_k7FGIBMtCEKuwJxYnPFiO9iUMR1NZwr4OarK0HDkWqaolm8LcZVNRiwITxoCUDojqkbafuEGMvs.3URwGSrvmxhlb7ILyUr4fi1yDmv4GYM_EptaHNtsdyg&dib_tag=se&keywords=rtx%2B3080ti&qid=1740159254&s=electronics&sprefix=rtx%2B3080ti%2Celectronics%2C229&sr=1-2&th=1"
+                  target="_blank"
+                  class="button amazon-btn"
+                  >Amazon Price</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'items/3090ti.png' %}" alt="Product Image" />
+            <h3>NVIDIA GEFORCE RTX 3090 Ti 24GB GDDR6X GPU</h3>
+            <div class="bottom">
+              <div class="price">₹1,89,999.00</div>
+              <div class="button-cnt">
+                <button class="add-to-cart-btn" onclick="addToCart('13', 'NVIDIA GEFORCE RTX 3090 Ti 24GB GDDR6X GPU', '189999.00', '{% static 'items/3090ti.png' %}')">
+                  Add to Cart
+                </button>
+                <a
+                  href="https://www.amazon.in/MSI-GeForce-RTX-3090-Gaming/dp/B09Q31ZPD8/"
+                  target="_blank"
+                  class="button amazon-btn"
+                  >Amazon Price</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'items/4080.png' %}" alt="Product Image" />
+            <h3>NVIDIA GEFORCE RTX 4080 16GB GDDR6X GPU</h3>
+            <div class="bottom">
+              <div class="price">₹1,12,999.00</div>
+              <div class="button-cnt">
+                <button class="add-to-cart-btn" onclick="addToCart('14', 'NVIDIA GEFORCE RTX 4080 16GB GDDR6X GPU', '112999.00', '{% static 'items/4080.png' %}')">
+                  Add to Cart
+                </button>
+                <a
+                  href="https://www.amazon.in/INNO3D-GEFORCE-256-bit-pci_e_x16-Graphics/dp/B0BLVG22ZV/ref=sr_1_7?crid=3UF0AG1OO5OC1&dib=eyJ2IjoiMSJ9.Ce71ED9QNNVMEVejmQoy7DK05ZC7O05c1YWe7jSueFfvCxSLsyyprMQnWTeePQQr1zR98AUUuUKZD5MukBpDt0TWnIdMq9PwFPSbgNLBgi-871mM1nYXQA0ShazMxtxzy2sagUuGQOtpECqOUyUq0buANXlSRVv0f0isXsgh-kEOzzllq7FmJjWBSoqE6706Vr5gngFAY2bT100PRUThcTdC-wUTiTyXWnTq_PO1kOx-6DGubgxOkNSLWEaQQcOj4pYTWabZpAZtyJXYzkfTos5yfRGUmSSKHGy2XrZanmiWegRiDo4cCMUrSQtTISThER26Xi8DI5qx0FJ-8i_XhZLYHT_juVXAjkr5x4Ui6sE.Zq0lt2JSlhk0k3vwE-gL9nzuYP3sWNO3y1bF_qAGMNA&dib_tag=se&keywords=NVIDIA+GEFORCE+RTX+4080+Ti+24GB+GDDR6X+GPU&nsdOptOutParam=true&qid=1740160887&s=electronics&sprefix=nvidia+geforce+rtx+4080+ti+24gb+gddr6x+gpu%2Celectronics%2C175&sr=1-7  "
+                  target="_blank"
+                  class="button amazon-btn"
+                  >Amazon Price</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'items/4090.png' %}" alt="Product Image" />
+            <h3>NVIDIA GEFORCE RTX 4090 24GB GDDR6X GPU</h3>
+            <div class="bottom">
+              <div class="price">₹1,89,999.00</div>
+              <div class="button-cnt">
+                <button class="add-to-cart-btn" onclick="addToCart('15', 'NVIDIA GEFORCE RTX 4090 24GB GDDR6X GPU', '189999.00', '{% static 'items/4090.png' %}')">
+                  Add to Cart
+                </button>
+                <a
+                  href="https://www.amazon.in/InfCloud®-GeForce-RTX-4090-PCI_E_X16/dp/B0C93KV2W8/ref=sr_1_5?crid=3UF0AG1OO5OC1&dib=eyJ2IjoiMSJ9.Ce71ED9QNNVMEVejmQoy7DK05ZC7O05c1YWe7jSueFfvCxSLsyyprMQnWTeePQQr1zR98AUUuUKZD5MukBpDt0TWnIdMq9PwFPSbgNLBgi-871mM1nYXQA0ShazMxtxzy2sagUuGQOtpECqOUyUq0buANXlSRVv0f0isXsgh-kEOzzllq7FmJjWBSoqE6706Vr5gngFAY2bT100PRUThcTdC-wUTiTyXWnTq_PO1kOx-6DGubgxOkNSLWEaQQcOj4pYTWabZpAZtyJXYzkfTos5yfRGUmSSKHGy2XrZanmiWegRiDo4cCMUrSQtTISThER26Xi8DI5qx0FJ-8i_XhZLYHT_juVXAjkr5x4Ui6sE.Zq0lt2JSlhk0k3vwE-gL9nzuYP3sWNO3y1bF_qAGMNA&dib_tag=se&keywords=NVIDIA+GEFORCE+RTX+4080+Ti+24GB+GDDR6X+GPU&nsdOptOutParam=true&qid=1740160887&s=electronics&sprefix=nvidia+geforce+rtx+4080+ti+24gb+gddr6x+gpu%2Celectronics%2C175&sr=1-5"
+                  target="_blank"
+                  class="button amazon-btn"
+                  >Amazon Price</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="debug" style="display: none"></div>
+  </body>
+</html>

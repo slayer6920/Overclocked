@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+@font-face {
+  font-family: "Debug";
+  src: url(/fonts/SpaceMission-rgyw9.otf);
+}
+
+@font-face {
+  font-family: "VW";
+  src: url(/fonts/Vampire\ Wars.otf);
+}
+@font-face {
+  font-family: "VW";
+  src: url(/fonts/Vampire\ Wars\ Italic.otf);
+  font-style: italic;
+}
+
+@import url("fonts.css");
+
+* {
+  margin: 0;
+  color: white;
+  font-family: "Russo One", sans-serif;
+  font-weight: 400;
+}
+
+.Box {
+  min-height: 100vh;
+  background: url("../Image/background1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  padding: 100px 20px 20px;
+}
+
+.confirmation-container {
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  background: rgba(25, 25, 25, 0.9);
+  padding: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 46, 99, 0.3);
+  box-shadow: 0 0 20px rgba(255, 46, 99, 0.2);
+}
+
+.success-animation {
+  margin-bottom: 30px;
+}
+
+.success-animation i {
+  font-size: 80px;
+  color: #ff2e63;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.confirmation-container h1 {
+  font-family: "VW";
+  font-size: 2.5em;
+  color: #fff;
+  text-shadow: 0 0 10px #ff2e63, 0 0 20px #ff2e63;
+  margin-bottom: 30px;
+}
+
+.order-details {
+  background: rgba(30, 30, 30, 0.7);
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+}
+
+.order-details p {
+  margin: 10px 0;
+  font-size: 1.2em;
+}
+
+.order-details span {
+  color: #ff2e63;
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.continue-shopping,
+.view-orders {
+  padding: 12px 25px;
+  font-family: "VW";
+  font-size: 1em;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.continue-shopping {
+  background: #ff2e63;
+  color: white;
+  border: none;
+}
+
+.view-orders {
+  background: none;
+  color: #ff2e63;
+  border: 2px solid #ff2e63;
+}
+
+.continue-shopping:hover {
+  background: #ff1a53;
+  box-shadow: 0 0 20px rgba(255, 46, 99, 0.6);
+  transform: translateY(-2px);
+}
+
+.view-orders:hover {
+  background: #ff2e63;
+  color: white;
+  box-shadow: 0 0 20px rgba(255, 46, 99, 0.6);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .button-container {
+    flex-direction: column;
+  }
+
+  .confirmation-container {
+    margin: 20px;
+    padding: 20px;
+  }
+}

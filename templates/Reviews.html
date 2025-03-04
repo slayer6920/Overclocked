@@ -1,0 +1,225 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reviews - Overclocked</title>
+    <link rel="stylesheet" href="{% static 'Css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'Css/all.css' %}" />
+    <link rel="stylesheet" href="{% static 'Css/reviews.css' %}" />
+    <link rel="icon" href="{% static 'icons/fav.png' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="{% url 'home' %}" class="logo-text">OVERCLOCKED</a>
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'parts' %}">Parts</a></li>
+          <li><a href="{% url 'reviews' %}">Reviews</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li>
+            <a href="{% url 'cart' %}">Cart (<span id="cartCount">0</span>)</a>
+          </li>
+          <li>
+            {% if user.is_authenticated %}
+            <a href="{% url 'profile' %}">
+            {% else %}
+            <a href="{% url 'signin' %}">
+            {% endif %}
+              <div class="user-cnt">
+                <img
+                  src="{% static 'icons/user.png' %}"
+                  height="16px"
+                  class="user"
+                />
+                <img
+                  src="{% static 'icons/user2.png' %}"
+                  height="16px"
+                  class="user2"
+                /></div
+            ></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="body">
+      <div class="middle">
+        <h1>VIDEO REVIEWS</h1>
+        <div class="video-container">
+          <div class="video-box">
+            <a
+              href="https://www.youtube.com/watch?v=cChf1SSyo_I"
+              target="_blank"
+            >
+              <div class="video-content">
+                <h3>Samsung 990 PRO SSD Review</h3>
+                <p>
+                  In-depth performance analysis of the Samsung 990 PRO 1TB PCIe
+                  4.0 M.2 SSD
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <div class="video-box">
+            <a
+              href="https://www.youtube.com/watch?v=VRG7GPhWpgM"
+              target="_blank"
+            >
+              <div class="video-content">
+                <h3>Kingston NV1 SSD Review</h3>
+                <p>
+                  Testing the Kingston NV1 250GB PCIe M.2 NVME performance and
+                  value
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <div class="video-box">
+            <a
+              href="https://www.youtube.com/watch?v=p5gixfJw2ec"
+              target="_blank"
+            >
+              <div class="video-content">
+                <h3>G.SKILL Trident Z5 RGB Review</h3>
+                <p>32GB DDR5 6000MHz memory kit tested and benchmarked</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="video-box">
+            <a
+              href="https://www.youtube.com/watch?v=THxkY59_xko"
+              target="_blank"
+            >
+              <div class="video-content">
+                <h3>RTX 4090 Performance Review</h3>
+                <p>
+                  NVIDIA's flagship GPU tested in latest games and workloads
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <div class="video-box">
+            <a
+              href="https://www.youtube.com/watch?v=QOU8w5h3sbo"
+              target="_blank"
+            >
+              <div class="video-content">
+                <h3>Intel i9-14900K Review</h3>
+                <p>Testing Intel's latest desktop processor performance</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="video-box">
+            <a
+              href="https://www.youtube.com/watch?v=nRaJXZMOMPU"
+              target="_blank"
+            >
+              <div class="video-content">
+                <h3>AMD Ryzen 9 7950X Review</h3>
+                <p>AMD's top desktop CPU benchmarked and analyzed</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="video-box">
+            <a
+              href="https://www.youtube.com/watch?v=A-a-wzQPZfs"
+              target="_blank"
+            >
+              <div class="video-content">
+                <h3>RTX 3080 Ti Performance Review</h3>
+                <p>
+                  Comprehensive review of the NVIDIA GeForce RTX 3080 Ti 12GB
+                  GDDR6X GPU
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <div class="video-box">
+            <a
+              href="https://www.youtube.com/watch?v=tZC17ZtDmNU"
+              target="_blank"
+            >
+              <div class="video-content">
+                <h3>RTX 3090 Ti vs 4090 Comparison</h3>
+                <p>
+                  Comparing NVIDIA's previous flagship against the new
+                  generation
+                </p>
+              </div>
+            </a>
+          </div>
+
+          <div class="video-box">
+            <a href="https://www.youtube.com/watch?v=example9" target="_blank">
+              <div class="video-content">
+                <h3>Intel i7-14700K Review</h3>
+                <p>Mid-range performance champion? Testing the i7-14700K</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="video-box">
+            <a
+              href="https://www.youtube.com/watch?v=8KKE-7BzB_M"
+              target="_blank"
+            >
+              <div class="video-content">
+                <h3>Intel i5-14600K Review</h3>
+                <p>Best value gaming CPU? i5-14600K performance analysis</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="video-box">
+            <a
+              href="https://www.youtube.com/watch?v=Df4r-a_z2CY"
+              target="_blank"
+            >
+              <div class="video-content">
+                <h3>AMD Ryzen 7 7700X Review</h3>
+                <p>AMD's mid-range Ryzen 7 tested in gaming and productivity</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="video-box">
+            <a
+              href="https://www.youtube.com/watch?v=xX8By_NQUKo"
+              target="_blank"
+            >
+              <div class="video-content">
+                <h3>AMD Ryzen 5 7600X Review</h3>
+                <p>Entry-level AM5 performance tested - Is it worth it?</p>
+              </div>
+            </a>
+          </div>
+
+          <!-- Continue with more product-specific reviews -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

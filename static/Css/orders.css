@@ -1,0 +1,281 @@
+@import url("fonts.css");
+
+* {
+  margin: 0;
+  color: white;
+  font-family: "Russo One", sans-serif;
+  font-weight: 400;
+  box-sizing: border-box;
+}
+
+/* Logo Styling */
+.logo {
+  margin-left: -20px;
+}
+
+.logo-text {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #d11f63;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(209, 31, 99, 0.5);
+  transition: all 0.3s ease;
+  padding: 5px 10px;
+  margin-left: 20px;
+}
+
+.logo-text:hover {
+  color: #ff2e63;
+  text-shadow: 0 0 20px rgba(255, 46, 99, 0.8);
+  transform: scale(1.05);
+}
+
+/* Main container styles */
+.Box {
+  min-height: 100vh;
+  background: url("../Image/background1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  padding: 100px 20px 20px;
+}
+
+.orders-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.page-title {
+  font-family: "VW";
+  font-size: 3em;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px #ff2e63, 0 0 20px #ff2e63;
+  letter-spacing: 2px;
+}
+
+/* Order card styles */
+.order-card {
+  background: rgba(25, 25, 25, 0.9);
+  border: 1px solid rgba(255, 46, 99, 0.3);
+  border-radius: 15px;
+  margin-bottom: 30px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 46, 99, 0.2);
+}
+
+.order-header {
+  background: rgba(30, 30, 30, 0.7);
+  padding: 20px;
+  border-bottom: 1px solid rgba(255, 46, 99, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-header h2 {
+  font-family: "VW";
+  color: #ff2e63;
+  margin: 0;
+  font-size: 1.5em;
+  text-shadow: 0 0 5px rgba(255, 46, 99, 0.5);
+}
+
+.order-date {
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "VW";
+}
+
+/* Order content styles */
+.order-content {
+  padding: 20px;
+}
+
+.shipping-info {
+  background: rgba(30, 30, 30, 0.5);
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.shipping-info h3 {
+  font-family: "VW";
+  color: #ff2e63;
+  margin-bottom: 15px;
+  font-size: 1.3em;
+}
+
+.shipping-details p {
+  margin: 8px 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Item container styles */
+.order-items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  background: rgba(30, 30, 30, 0.7);
+  border: 1px solid rgba(255, 46, 99, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
+
+.order-item:hover {
+  background: rgba(35, 35, 35, 0.8);
+  border-color: rgba(255, 46, 99, 0.4);
+  box-shadow: 0 0 15px rgba(255, 46, 99, 0.2);
+}
+
+.item-image {
+  width: 120px;
+  height: 120px;
+  min-width: 120px;
+  margin-right: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 46, 99, 0.2);
+}
+
+.item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 10px;
+  transition: transform 0.3s ease;
+}
+
+.item-image img:hover {
+  transform: scale(1.05);
+}
+
+.item-details {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item-details h3 {
+  font-family: "VW";
+  font-size: 1.2em;
+  color: #ff2e63;
+  margin: 0;
+}
+
+.item-details p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.item-price {
+  font-weight: bold;
+  color: #ff2e63;
+}
+
+.no-orders {
+  text-align: center;
+  padding: 40px;
+  background: rgba(25, 25, 25, 0.9);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 46, 99, 0.3);
+}
+
+.no-orders h2 {
+  font-family: "VW";
+  color: #ff2e63;
+  margin-bottom: 20px;
+}
+
+.no-orders p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.shop-now-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #ff2e63;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.shop-now-btn:hover {
+  background: #ff1a53;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 46, 99, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .order-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .item-image {
+    margin: 0 auto 15px;
+  }
+
+  .item-details {
+    align-items: center;
+  }
+
+  .order-header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .orders-container {
+    padding: 10px;
+  }
+
+  .page-title {
+    font-size: 1.8em;
+  }
+}
+
+.order-header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.delete-order-btn {
+  background: none;
+  border: 2px solid #ff2e63;
+  color: #ff2e63;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: "VW";
+  font-size: 0.9em;
+  transition: all 0.3s ease;
+}
+
+.delete-order-btn:hover {
+  background: #ff2e63;
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 46, 99, 0.4);
+}
+
+@media (max-width: 768px) {
+  .order-header-right {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

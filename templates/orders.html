@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'Css/orders.css' %}" />
+{% endblock %} {% block content %}
+<div class="Box">
+  <div class="orders-container">
+    <h1 class="page-title">MY ORDERS</h1>
+
+    {% if orders %} {% for order in orders %}
+    <div class="order-card" id="order-{{ order.id }}">
+      <div class="order-header">
+        <h2>Order #{{ order.id }}</h2>
+        <div class="order-header-right">
+          <span class="order-date">{{ order.created_at|date:"F j, Y" }}</span>
+        </div>
+      </div>
+      <div class="order-content">
+        <div class="shipping-info">
+          <h3>Shipping Details</h3>
+          <div class="shipping-details">
+            <p><strong>Name:</strong> {{ order.shipping_address.name }}</p>
+            <p><strong>District:</strong> {{ order.shipping_address.city }}</p>
+            <p><strong>Phone:</strong> {{ order.shipping_address.phone }}</p>
+            <p><strong>Email:</strong> {{ order.shipping_address.email }}</p>
+          </div>
+        </div>
+
+        <div class="order-items-container">
+          {% for item in order.items %}
+          <div class="order-item">
+            <div class="item-image-container">
+              <div class="item-image-wrapper">
+                <img
+                  src="{{ item.image_url }}"
+                  alt="{{ item.name }}"
+                  onerror="this.src='{% static 'Image/default.jpg' %}'"
+                  class="item-image"
+                />
+              </div>
+            </div>
+            <div class="item-details">
+              <h3 class="item-name">{{ item.name }}</h3>
+              <div class="item-info">
+                <p class="item-quantity">Quantity: {{ item.quantity }}</p>
+                <p class="item-price">₹{{ item.price }}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="order-total">
+        Total Amount:
+        <span class="total-amount">₹{{ order.total_amount }}</span>
+      </div>
+    </div>
+    {% endfor %} {% else %}
+    <div class="no-orders">
+      <h2>No Orders Yet</h2>
+      <p>
+        You haven't placed any orders yet. Start shopping to see your orders
+        here!
+      </p>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

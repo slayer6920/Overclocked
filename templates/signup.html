@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Overclocked</title>
+    <link rel="stylesheet" href="{% static 'Css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'Css/all.css' %}" />
+    <link rel="stylesheet" href="{% static 'Css/signup.css' %}" />
+    <link rel="icon" href="{% static 'icons/fav.png' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="{% url 'home' %}" class="logo-text">OVERCLOCKED</a>
+      </div>
+    </header>
+
+    <div class="Box">
+      <div class="signup-container">
+        <div class="signup-header">
+          <h1>Sign Up</h1>
+        </div>
+        {% if error %}
+        <div class="error-message">{{ error }}</div>
+        {% endif %}
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <button type="submit" class="signup-btn">Sign Up</button>
+        </form>
+        <div class="signin-link">
+          Already have an account? <a href="{% url 'signin' %}">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

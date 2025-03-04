@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Debug";
+  src: url("../fonts/SpaceMission-rgyw9.otf");
+}
+
+@font-face {
+  font-family: "VW";
+  src: url("../fonts/Vampire Wars.otf");
+}
+
+@font-face {
+  font-family: "VW Italic";
+  src: url("../fonts/Vampire Wars Italic.otf");
+}
+
+.Box {
+  background-image: url("../Image/background1.jpg");
+  /* Rest of your CSS */
+}

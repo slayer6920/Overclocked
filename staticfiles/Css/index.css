@@ -1,0 +1,107 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+@import url("fonts.css");
+
+/* General styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Russo One", sans-serif;
+  color: white; /* Change text color to white */
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  background: url("../Image/background1.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Container for the login form */
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 430px;
+  width: 100%;
+  background: rgba(25, 25, 25, 0.8); /* Semi-transparent background */
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+  padding: 2rem; /* Padding for the container */
+}
+
+.container .registration {
+  display: none;
+}
+.container .forgot {
+  display: none;
+}
+#check {
+  display: none;
+}
+
+/* Header styles */
+.form header {
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #ff2e63; /* Header color */
+}
+
+/* Input styles */
+.form input {
+  height: 50px;
+  width: 100%;
+  padding: 0 15px;
+  font-size: 17px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.1); /* Light background for inputs */
+  color: white; /* Input text color */
+  font-family: "Russo One", sans-serif; /* Changed to Russo One font */
+}
+
+/* Focus effect for inputs */
+.form input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Button styles */
+.form input.button {
+  color: #fff;
+  background: #ff2e63; /* Button background color */
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.form input.button:hover {
+  background: #d11f63; /* Darker shade on hover */
+}
+
+/* Signup link styles */
+.signup {
+  font-size: 17px;
+  text-align: center;
+}
+
+.signup a {
+  color: #ff2e63; /* Link color */
+  cursor: pointer;
+}
+
+.signup a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+h1 {
+  font-family: VW;
+}

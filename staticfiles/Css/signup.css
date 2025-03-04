@@ -1,0 +1,221 @@
+@import url("fonts.css");
+
+* {
+  margin: 0;
+  color: white;
+  font-family: "Russo One", sans-serif;
+  font-weight: 400;
+}
+
+header {
+  background: #191919;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10%;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo {
+  margin-left: -20px;
+}
+
+.logo-text {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #d11f63;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(209, 31, 99, 0.5);
+  transition: all 0.3s ease;
+  padding: 5px 10px;
+  margin-left: 20px;
+}
+
+.logo-text:hover {
+  color: #ff2e63;
+  text-shadow: 0 0 20px rgba(255, 46, 99, 0.8);
+  transform: scale(1.05);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin-right: 20px;
+  align-items: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li a {
+  font-family: "VW";
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  padding: 12px 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+nav ul li a:hover {
+  color: #ff2e63;
+  text-shadow: 0 0 10px rgba(255, 46, 99, 0.5);
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #ff2e63;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(255, 46, 99, 0.5);
+}
+
+nav ul li a:hover::after {
+  width: 70%;
+}
+
+.user-cnt {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.user2 {
+  display: none;
+}
+
+.user-cnt:hover .user {
+  display: none;
+}
+
+.user-cnt:hover .user2 {
+  display: block;
+}
+
+.Box {
+  height: 100vh;
+  background: url("../Image/background1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.signup-container {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 430px;
+  background-color: rgba(25, 25, 25, 0.9);
+  border-radius: 16px;
+  padding: 50px;
+  border: 2px solid #ff2e63;
+  box-shadow: 0 0 20px rgba(255, 46, 99, 0.3);
+}
+
+.signup-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.signup-header h1 {
+  font-family: "VW";
+  font-size: 2.5em;
+  color: #fff;
+  text-shadow: 0 0 10px #ff2e63, 0 0 20px #ff2e63;
+  letter-spacing: 2px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  color: #fff;
+  margin-bottom: 8px;
+  font-family: "VW";
+  letter-spacing: 1px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 46, 99, 0.1);
+  border: 1px solid #ff2e63;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  box-shadow: 0 0 15px rgba(255, 46, 99, 0.3);
+  border-color: #ff2e63;
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 12px;
+  background: none;
+  border: 2px solid #ff2e63;
+  color: white;
+  font-family: "VW";
+  font-size: 18px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin: 20px 0;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.signup-btn:hover {
+  background-color: #ff2e63;
+  box-shadow: 0 0 20px rgba(255, 46, 99, 0.5);
+}
+
+.signin-link {
+  text-align: center;
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.signin-link a {
+  color: #ff2e63;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.signin-link a:hover {
+  text-shadow: 0 0 10px #ff2e63;
+}
+
+.error-message {
+  color: #ff4444;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 0 5px rgba(255, 68, 68, 0.5);
+}

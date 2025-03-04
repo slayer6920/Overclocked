@@ -1,0 +1,159 @@
+@import url("fonts.css");
+* {
+  margin: 0;
+  color: white;
+  font-family: "Russo One", sans-serif;
+  font-weight: 400;
+}
+
+.body {
+  position: relative;
+}
+
+.middle {
+  padding: 150px 200px;
+  position: relative;
+  z-index: 2; /* Ensure content stays above the overlay */
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-family: "VW";
+  letter-spacing: 1px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.item {
+  width: 300px;
+  border-radius: 16px;
+  margin: 0 20px 20px 0;
+  padding: 24px;
+  background-color: #191919;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  align-items: center;
+}
+
+.item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(255, 46, 99, 0.2);
+}
+
+.item img {
+  width: 300px;
+  height: 200px;
+  object-fit: contain;
+  padding: 20px;
+  background: transparent;
+  mix-blend-mode: normal;
+  margin: -24px -24px 15px -24px;
+  border-radius: 16px 16px 0 0;
+  background-color: #000;
+}
+
+.item:hover img {
+  transform: scale(1.05);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.4),
+    0 6px 12px rgba(255, 46, 99, 0.15);
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: brightness(1);
+}
+
+.item h3 {
+  width: 100%;
+  overflow: visible;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #ff2e63;
+  line-height: 1.4;
+  min-height: 40px;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: auto;
+}
+
+.price {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.button-cnt {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.button {
+  flex: 1;
+  padding: 8px 15px;
+  background: none;
+  border: 1px solid #ff2e63;
+  color: white;
+  text-decoration: none;
+  font-family: "VW";
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.button:hover {
+  background-color: #ff2e63;
+  box-shadow: 0 0 15px rgba(255, 46, 99, 0.4);
+  transform: translateY(-2px);
+}
+
+.add-to-cart-btn {
+  background: rgba(255, 46, 99, 0.1);
+}
+
+.amazon-btn {
+  border-color: #ff2e63;
+  color: #ff2e63;
+}
+
+.amazon-btn:hover {
+  color: white;
+}
+
+.logo {
+  margin-left: -20px;
+}
+
+.logo-text {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #d11f63;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(209, 31, 99, 0.5);
+  transition: all 0.3s ease;
+  padding: 5px 10px;
+  margin-left: 20px;
+}
+
+.logo-text:hover {
+  color: #ff2e63;
+  text-shadow: 0 0 20px rgba(255, 46, 99, 0.8);
+  transform: scale(1.05);
+}
